@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- This is the important line -->
+    <title>Horizon Chatbot</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif; /* Optional: For a nicer font than the default */
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+        background-color: #ffffff;
+    }
+
+    p {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <!-- Your message to users -->
+    <p>Bienvenue Au Coach Mental</p>
+
+    <!-- Botpress scripts -->
+    <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+    <script>
+        window.botpressWebChat.init({
+            "botId": "ea09c910-d2ad-49a7-8763-03330e498ef1",
+            "clientId": "ea09c910-d2ad-49a7-8763-03330e498ef1",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "botName": "Horizon",
+            "containerWidth": "100%25",
+            "layoutWidth": "100%25",
+            "hideWidget": true,
+            "disableAnimations": true,
+            "showCloseButton": false,
+        });
+    
+        window.botpressWebChat.onEvent(
+            function () {
+                window.botpressWebChat.sendEvent({ type: "show" });
+            },
+            ["LIFECYCLE.LOADED"]
+        );
+    </script>
+</body>
+</html>
